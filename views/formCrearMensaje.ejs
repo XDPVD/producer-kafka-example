@@ -8,69 +8,132 @@
   <title>Contactanos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/form.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-  <div class="container-sm mt-3 w-50">
-    <h1>Contactanos</h1>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/logo.png" height="60" alt="" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#">CICLOS</a>
+          <a class="nav-link" href="#">MATRÍCULA EN LÍNEA</a>
+          <a class="nav-link" href="#">RECURSOS</a>
+          <a class="nav-link" href="#">BLOG</a>
+          <a class="nav-link" href="#">CONÓCENOS</a>
+          <a class="nav-link active" aria-current="page" href="#">CONTACTO</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="fixer"></div>
+
+  <main class="container">
     <% if (errors.length> 0) { %> <% errors.forEach((e)=> { %>
         <li>Error: <%= e.text %>
         </li>
         <% });%>
           <% } %>
-            <form action="/contacto/" method="POST" id="form">
-              <div class="mb-3">
-                <label for="nombres-txt" class="form-label">Nombres</label>
-                <input name="firstName" type="text" class="form-control" id="nombres-txt"
-                  placeholder="Escribe tu nombre" required />
-              </div>
-              <div class="mb-3">
-                <label for="apellidos-txt" class="form-label">Apellidos</label>
-                <input name="lastName" type="text" class="form-control" id="apellidos-txt"
-                  placeholder="Escribe tus apellidos" required />
-              </div>
-              <div class="mb-3">
-                <label for="dni-txt" class="form-label">Documento de Identidad</label>
-                <input name="dni" type="number" class="form-control" id="dni-txt" placeholder="Ingresa tu teléfono"
-                  required />
-              </div>
+            <div class="row">
+              <section class="col-12 col-md-6 col-lg-7">
+                <form action="/contacto/" method="POST" id="form">
+                  <div class="mb-3">
+                    <label for="nombres-txt" class="form-label">Nombres</label>
+                    <input name="firstName" type="text" class="form-control" id="nombres-txt"
+                      placeholder="Escribe tu nombre" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellidos-txt" class="form-label">Apellidos</label>
+                    <input name="lastName" type="text" class="form-control" id="apellidos-txt"
+                      placeholder="Escribe tus apellidos" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="dni-txt" class="form-label">Documento de Identidad</label>
+                    <input name="dni" type="number" class="form-control" id="dni-txt" placeholder="Ingresa tu teléfono"
+                      required />
+                  </div>
 
-              <div class="mb-3">
-                <label for="teléfono-txt" class="form-label">Teléfono</label>
-                <input name="telephone" type="number" class="form-control" id="teléfono-txt"
-                  placeholder="Ingresa tu teléfono" required />
-              </div>
-              <div class="mb-3">
-                <label for="email-txt" class="form-label">Correo</label>
-                <input name="email" type="email" class="form-control" id="email-txt" placeholder="Ingresa tu correo"
-                  required />
-              </div>
-              <div class="mb-3">
-                <label for="motivo-txt" class="form-label">Academia</label>
-                <select name="reason" class="form-select" aria-label="Default select example" required>
-                  <option selected value="aduni">Aduni</option>
-                  <option value="cvallejo">Cesar Vallejo</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="comentarios-txt" class="form-label">Información Adicional</label>
-                <textarea name="comments" class="form-control" id="comentarios-txt" rows="3"
-                  placeholder="Escribe un comentario (opcional)"></textarea>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required />
-                <div class="mb-3">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Acepto los términos y condiciones
-                  </label>
+                  <div class="mb-3">
+                    <label for="teléfono-txt" class="form-label">Teléfono</label>
+                    <input name="telephone" type="number" class="form-control" id="teléfono-txt"
+                      placeholder="Ingresa tu teléfono" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="email-txt" class="form-label">Correo</label>
+                    <input name="email" type="email" class="form-control" id="email-txt" placeholder="Ingresa tu correo"
+                      required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="motivo-txt" class="form-label">Academia</label>
+                    <select name="reason" class="form-select" aria-label="Default select example" required>
+                      <option selected value="aduni">Aduni</option>
+                      <option value="cvallejo">Cesar Vallejo</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="comentarios-txt" class="form-label">Información Adicional</label>
+                    <textarea name="comments" class="form-control" id="comentarios-txt" rows="3"
+                      placeholder="Escribe un comentario (opcional)"></textarea>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required />
+                    <div class="mb-3">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Acepto los términos y condiciones
+                      </label>
+                    </div>
+                  </div>
+                  <div class="submit-btn">
+                    <button type="submit" class="btn btn-light mb-3">
+                      Enviar información
+                    </button>
+                  </div>
+
+                </form>
+              </section>
+              <section class="col-12 col-md-6 col-lg-5">
+                <div class="contact">
+                  <h4>Contáctanos</h4>
+                  <p>
+                    Considerando la vigencia del Decreto Legislativo Nº 1390
+                    (Restricciones a la difusión de publicidad masiva) y, siendo LAS
+                    ACADEMIAS ADUNI Y CÉSAR VALLEJO respetuoso del ordenamiento
+                    jurídico vigente, le solicitamos nos brinde su consentimiento para
+                    mantenerlo informado acerca de nuestros diferentes servicios a
+                    través del envío de nuestra publicidad. La información brindada se
+                    utilizará exclusivamente para el envío de publicidad, por lo que
+                    se encontrará protegida por la Ley Nº 29733 - Ley de Protección de
+                    datos personales.
+                  </p>
                 </div>
-              </div>
-              <button type="submit" class="btn btn-primary mb-3">
-                Enviar información
-              </button>
-  </div>
-  </form>
-  </div>
+                <div>
+                  <h4>Informes</h4>
+                  <small>Si deseas conocer información de nuestros ciclos o servicios
+                    comunícate a nuestro número.</small> <br> <br>
+                  <p>CENTRAL TELEFÓNICA <br>
+                    Teléfono: 01 480 0048</p>
+                </div>
+                <div class="social">
+                  VISÍTANOS EN:
+                  <div class="icons">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#"><i class="fab fa-youtube-square"></i></a>
+                  </div>
+                </div>
+              </section>
+            </div>
+  </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
