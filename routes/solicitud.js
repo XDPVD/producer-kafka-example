@@ -24,27 +24,17 @@ router.post("/contacto/", (req, res) => {
     comments: comments,
   };
 
-  if (obj.reason === "Motivo 1") {
+  if (obj.reason === "aduni") {
     data.producer.send(
-      [{ topic: "A", partition: 1, messages: JSON.stringify(obj) }],
+      [{ topic: "aduni", partition: 1, messages: JSON.stringify(obj) }],
       function (err, data) {}
     );
   } else {
     data.producer.send(
-      [{ topic: "B", partition: 0, messages: JSON.stringify(obj) }],
+      [{ topic: "cvallejo", partition: 0, messages: JSON.stringify(obj) }],
       function (err, data) {}
     );
   }
-
-  // data.producer.send(
-  //   [
-  //     {
-  //       topic: "testing",
-  //       messages: JSON.stringify(obj),
-  //     },
-  //   ],
-  //   function (err, data) {}
-  // );
 
   if (firstName === undefined || firstName === "") {
     errors.push({ text: "Por favor, escriba su nombres" });
