@@ -38,12 +38,7 @@
   </nav>
   <div class="fixer"></div>
 
-  <main class="container">
-    <% if (errors.length> 0) { %> <% errors.forEach((e)=> { %>
-        <li>Error: <%= e.text %>
-        </li>
-        <% });%>
-          <% } %>
+  <main class="container pt-5 mt-5">
             <div class="row">
               <section class="col-12 col-md-6 col-lg-7">
                 <form action="/contacto/" method="POST" id="form">
@@ -76,8 +71,8 @@
                   <div class="mb-3">
                     <label for="motivo-txt" class="form-label">Academia</label>
                     <select name="reason" class="form-select" aria-label="Default select example" required>
-                      <option selected value="aduni">Aduni</option>
-                      <option value="cvallejo">Cesar Vallejo</option>
+                      <option selected value="ADUNI">Aduni</option>
+                      <option value="CVALLEJO">Cesar Vallejo</option>
                     </select>
                   </div>
                   <div class="mb-3">

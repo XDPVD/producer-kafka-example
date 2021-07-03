@@ -6,7 +6,11 @@ const router = require("./routes/solicitud");
 
 const kafka = require("kafka-node");
 
-const client = new kafka.KafkaClient({ kafkaHost: "localhost:9092" });
+require('dotenv').config();
+
+console.log(process.env.KAFKA_HOST)
+
+const client = new kafka.KafkaClient({ kafkaHost: process.env.KAFKA_HOST });
 
 var producer = new kafka.Producer(client);
 

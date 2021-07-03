@@ -25,13 +25,15 @@ router.post("/contacto/", (req, res) => {
   };
 
   if (obj.reason === "ADUNI") {
+    console.log('Enviando a ADUNI');
     data.producer.send(
       [{ topic: "ADUNI", partition: 1, messages: JSON.stringify(obj) }],
       function (err, data) {}
     );
   } else {
+    console.log('Enviando a CVALLEJO');
     data.producer.send(
-      [{ topic: "CVALLEJO", partition: 1, messages: JSON.stringify(obj) }],
+      [{ topic: "CVALLEJO", partition: 0, messages: JSON.stringify(obj) }],
       function (err, data) {}
     );
   }
