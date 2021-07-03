@@ -17,41 +17,35 @@ router.post("/contacto/", (req, res) => {
   obj = {
     firstName: firstName,
     lastName: lastName,
-    dni: dni,
-    telephone: telephone,
+    dni: Number(dni),
+    telephone: Number(telephone),
     email: email,
     reason: reason,
     comments: comments,
   };
 
-  if (obj.reason === "aduni") {
+  if (obj.reason === "ADUNI") {
     data.producer.send(
-      [{ topic: "aduni", partition: 1, messages: JSON.stringify(obj) }],
+      [{ topic: "ADUNI", partition: 1, messages: JSON.stringify(obj) }],
       function (err, data) {}
     );
   } else {
     data.producer.send(
-      [{ topic: "cvallejo", partition: 0, messages: JSON.stringify(obj) }],
+      [{ topic: "CVALLEJO", partition: 1, messages: JSON.stringify(obj) }],
       function (err, data) {}
     );
   }
 
-  if (firstName === undefined || firstName === "") {
-    errors.push({ text: "Por favor, escriba su nombres" });
-  }
-
-  if (lastName === undefined || lastName === "") {
-    errors.push({ text: "Por favor, escriba su nombres" });
-  }
-
-  console.log(errors);
   if (errors.length > 0) {
     res.render("formCrearMensaje", {
       errors,
       prevInfo: req.body,
     });
   } else {
-    res.send("Solicitud Enviada");
+    res.render("formCrearMensaje", {
+      errors,
+      prevInfo: req.body,
+    });
   }
 });
 
